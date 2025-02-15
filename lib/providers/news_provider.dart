@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import '../api_service.dart';
 import '../models/news.dart';
+import '../services/api_service.dart';
 
 class NewsProvider with ChangeNotifier {
   List<News> _newsList = [];
-  bool _isLoading = true;
+  bool _isLoading = false;
 
   List<News> get newsList => _newsList;
   bool get isLoading => _isLoading;
-
-  NewsProvider() {
-    fetchNews();
-  }
 
   Future<void> fetchNews() async {
     _isLoading = true;

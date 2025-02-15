@@ -1,17 +1,22 @@
 class News {
   final String title;
   final String description;
-  final String url;
   final String imageUrl;
+  final String url;
 
-  News({required this.title, required this.description, required this.url, required this.imageUrl});
+  News({
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+    required this.url,
+  });
 
   factory News.fromJson(Map<String, dynamic> json) {
     return News(
-      title: json['title'] ?? "No Title",
-      description: json['description'] ?? "No Description",
-      url: json['url'] ?? "",
-      imageUrl: json['urlToImage'] ?? "https://via.placeholder.com/150",
+      title: json['title'] ?? 'No Title',
+      description: json['description'] ?? 'No Description',
+      imageUrl: json['urlToImage'] ?? '',
+      url: json['url'] ?? '',
     );
   }
 }
