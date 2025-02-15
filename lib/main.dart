@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/news_provider.dart';
-import 'screens/home_screen.dart';
+import 'themes/theme_provider.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => NewsProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => NewsProvider(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'News Aggregator',
-        theme: ThemeData(primarySwatch: Colors.blue),
-        home: const HomeScreen(),
-      ),
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: themeProvider.isDarkMode ? ThemeProvider.darkTheme : ThemeProvider.lightTheme,
+      home: const SplashScreen(),
     );
   }
 }
