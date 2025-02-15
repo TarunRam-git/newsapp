@@ -2,7 +2,16 @@
 
 A new Flutter project.
 
-## Getting Started
 
-I used flutter to develop this,
-using news api i fetched news from us and displayed it.For now the app can only fetch news and then you can scroll through all the news. 
+## News Aggregator App
+
+So, I built this News Aggregator App using Flutter. It pulls in real-time news from NewsAPI and presents it. 
+
+What Can It Do?
+
+Fetches the latest news from NewsAPI
+
+Shows headlines, descriptions, and images in a simple feed
+
+Right now, you can just scroll through the news, but I’m planning to add search and more features soon!
+
